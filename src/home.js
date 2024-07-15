@@ -14,7 +14,7 @@ const Home = () => {
         setOutputText("")
         setLoading(true)
         try {
-            const response = await axios.get("http://localhost:5000/translation", {
+            const response = await axios.get("https://babel-backend.onrender.com/translation", {
                 params: {
                     userQuestion: inputText,
                     folderName: "models",
@@ -34,7 +34,7 @@ const Home = () => {
     const handleCopy = () => {
         navigator.clipboard.writeText(outputText).then(() => {
             setCopySuccess(true);
-            setTimeout(() => setCopySuccess(false), 2000); // Reset after 2 seconds
+            setTimeout(() => setCopySuccess(false), 2000); 
         }, (err) => {
             console.error('Failed to copy text: ', err);
         });
